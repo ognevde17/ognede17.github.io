@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Портфолио веб-разработчика">
+    <meta name="keywords" content="веб-разработка, фронтенд, портфолио">
+    <meta name="author" content="Ваше Имя">
+    <title>Портфолио разработчика</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">Portfolio</a>
+            <ul class="nav-list">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>   
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Привет, я Даниил Огнев</h1>
+            <p>Бэкенд разработчик с опытом создания современных архитектур и программный обеспечений</p>
+            <a href="#contact" class="btn">Связаться со мной</a>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>Мои проекты</h2>
+        <div class="project-grid">
+            <article class="project-card">
+                <img src="scr.jpg" alt="Проект 1" loading="lazy">
+                <h3>SwiftMessage</h3>
+                <p>Лёгкий, быстрый, кроссплатформенный, многопоточный мессенджер, написанный полность на C++</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Мои навыки</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <h3>C++</h3>
+                <div class="skill-bar">
+                    <div class="skill-level html">
+                        <div class="skill-text">High lvl</div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>Git</h3>
+                <div class="skill-bar">
+                    <div class="skill-level html">
+                        <div class="skill-text">Average lvl</div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>OOP</h3>
+                <div class="skill-bar">
+                    <div class="skill-level html">
+                        <div class="skill-text">High lvl</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Связаться со мной</h2>
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required minlength="2">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" required minlength="10"></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Отправить</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; MIPT HSSE</p>
+    </footer>
+</body>
+</html>
