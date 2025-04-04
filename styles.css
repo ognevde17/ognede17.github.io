@@ -46,7 +46,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Шапка */
 .header {
     background: var(--white);
     box-shadow: var(--shadow);
@@ -105,7 +104,6 @@ body {
     opacity: 0.9;
 }
 
-/* Секция проектов */
 .projects {
     background: var(--blue);
     color: var(--white);
@@ -157,7 +155,6 @@ body {
     color: #64748b;
 }
 
-/* Секция навыков */
 .skills {
     padding: 4rem 2rem;
     background: var(--white);
@@ -206,7 +203,6 @@ body {
     line-height: 24px;
 }
 
-/* Контактная форма */
 .contact {
     background: var(--red);
     color: var(--white);
@@ -251,7 +247,6 @@ input:focus, textarea:focus {
     border-color: var(--blue);
 }
 
-/* Подвал */
 .footer {
     background: var(--blue);
     color: var(--white);
@@ -259,7 +254,6 @@ input:focus, textarea:focus {
     padding: 2rem;
 }
 
-/* Стили для страницы проектов */
 .projects-page {
     padding: 4rem 2rem;
     background: var(--white);
@@ -323,7 +317,6 @@ input:focus, textarea:focus {
     color: var(--blue);
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
     .nav-list {
         display: none;
