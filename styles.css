@@ -277,7 +277,6 @@ input:focus, textarea:focus {
     transform: translateY(-2px);
 }
 
-/* Footer */
 .footer {
     background: var(--blue);
     color: var(--white);
