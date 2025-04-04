@@ -4,6 +4,8 @@
     --red: #D52B1E;
     --dark: #1e293b;
     --light: #f8fafc;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
 }
 
 * {
@@ -19,9 +21,35 @@ body {
     overflow-x: hidden;
 }
 
+/* Общие стили */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: var(--red);
+    transform: translateY(-2px);
+}
+
+/* Шапка */
 .header {
     background: var(--white);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -29,19 +57,10 @@ body {
 }
 
 .nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--blue);
-    text-decoration: none;
+    padding: 1rem 2rem;
 }
 
 .nav-list {
@@ -54,79 +73,50 @@ body {
     color: var(--dark);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: var(--transition);
 }
 
 .nav-list a:hover {
     color: var(--red);
 }
 
+/* Герой секция */
 .hero {
     background: var(--white);
     color: var(--dark);
-    padding: 8rem 2rem 12rem;
+    padding: 8rem 2rem;
     position: relative;
-    overflow: hidden;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 150px;
-    background: var(--blue);
-    clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1200px;
-    margin: 0 auto;
     text-align: center;
 }
 
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    line-height: 1.2;
 }
 
 .hero p {
     font-size: 1.25rem;
-    max-width: 600px;
-    margin: 0 auto 2rem;
+    margin-bottom: 2rem;
     opacity: 0.9;
 }
 
+/* Секция проектов */
 .projects {
     background: var(--blue);
     color: var(--white);
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
     position: relative;
-}
-
-.projects::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 150px;
-    background: var(--red);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    z-index: 1;
 }
 
 .projects h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 4rem;
-    position: relative;
-    z-index: 2;
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
 .project-grid {
@@ -135,17 +125,14 @@ body {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
-    z-index: 2;
 }
 
 .project-card {
-    color: black;
     background: rgba(255,255,255,0.9);
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
 .project-card:hover {
@@ -155,30 +142,31 @@ body {
 
 .project-card img {
     width: 100%;
-    height: 750px;
+    height: 200px;
     object-fit: cover;
     border-bottom: 3px solid var(--blue);
 }
 
 .project-card h3 {
-    padding: 1.5rem 1.5rem 0;
+    padding: 1rem;
     color: var(--dark);
 }
 
 .project-card p {
-    padding: 1rem 1.5rem 1.5rem;
+    padding: 0 1rem 1rem;
     color: #64748b;
 }
 
+/* Секция навыков */
 .skills {
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
     background: var(--white);
 }
 
 .skills h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 4rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
     color: var(--dark);
 }
 
@@ -188,7 +176,7 @@ body {
 }
 
 .skill {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .skill h3 {
@@ -207,29 +195,34 @@ body {
     height: 100%;
     background: var(--blue);
     border-radius: 5px;
+    position: relative;
 }
+
 .skill-text {
-    margin-left: 5px;
+    position: absolute;
+    right: 5px;
     color: var(--white);
+    font-size: 0.8rem;
+    line-height: 24px;
 }
+
+/* Контактная форма */
 .contact {
     background: var(--red);
     color: var(--white);
-    padding: 6rem 2rem;
-    position: relative;
+    padding: 4rem 2rem;
 }
 
 .contact h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
 .contact-form {
     background: rgba(255,255,255,0.9);
-    padding: 3rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    padding: 2rem;
+    border-radius: 8px;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -251,32 +244,14 @@ input, textarea {
     border: 2px solid #e2e8f0;
     border-radius: 6px;
     font-size: 1rem;
-    transition: border-color 0.3s;
 }
 
 input:focus, textarea:focus {
     outline: none;
     border-color: var(--blue);
-    box-shadow: 0 0 0 3px rgba(0,57,166,0.2);
 }
 
-.btn {
-    background: var(--blue);
-    color: var(--white);
-    padding: 0.875rem 2rem;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-.btn:hover {
-    background: var(--red);
-    transform: translateY(-2px);
-}
-
+/* Подвал */
 .footer {
     background: var(--blue);
     color: var(--white);
@@ -284,49 +259,28 @@ input:focus, textarea:focus {
     padding: 2rem;
 }
 
-
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .nav-list {
-        display: none;
-    }
-    
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-form {
-        padding: 2rem;
-    }
-    
-    .hero::after {
-        height: 100px;
-    }
-    
-    .projects::aftebr {
-        height: 100px;
-    }
-}
+/* Стили для страницы проектов */
 .projects-page {
     padding: 4rem 2rem;
     background: var(--white);
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+.project-article {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
 }
 
-.project-article {
-    margin-bottom: 6rem;
-    padding: 2rem;
-    background: rgba(255,255,255,0.95);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+.project-image img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
 }
 
 .project-meta {
@@ -337,31 +291,15 @@ input:focus, textarea:focus {
     font-weight: 500;
 }
 
-.project-gallery {
-    margin: 2rem 0;
-}
-
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-}
-
-.project-image img {
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.project-content h3 {
-    color: var(--blue);
-    margin: 2rem 0 1rem;
-    font-size: 1.5rem;
+.project-features {
+    margin: 1rem 0 1rem 2rem;
 }
 
 .tech-stack {
     display: flex;
     gap: 0.8rem;
     flex-wrap: wrap;
+    margin: 1rem 0;
 }
 
 .tech-item {
@@ -378,28 +316,38 @@ input:focus, textarea:focus {
     gap: 1rem;
     flex-wrap: wrap;
 }
-.project-features {
-    margin-left: 25px;
-}
+
 .btn-ghost {
     background: transparent;
     border: 2px solid var(--blue);
     color: var(--blue);
 }
 
-.architecture-diagram {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    margin: 2rem 0;
-}
-
+/* Адаптивность */
 @media (max-width: 768px) {
-    .project-article {
-        padding: 1rem;
+    .nav-list {
+        display: none;
     }
     
-    .image-grid {
-        grid-template-columns: 1fr;
+    .hero {
+        padding: 6rem 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .project-image img {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-image img {
+        max-height: 300px;
+    }
+    
+    .project-article {
+        padding: 1rem;
     }
 }
