@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Детальное описание реализованных проектов">
+    <title>Мои проекты - Портфолио разработчика</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Portfolio</a>
+            <ul class="nav-list">
+                <li><a href="index.html">Главная</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="projects-page">
+        <section class="project-detail">
+            <div class="container">
+                <h1>Мои проекты</h1>
+                
+                <!-- Проект 1 -->
+                <article class="project-article">
+                    <div class="project-meta">
+                        <span class="date">2025</span>
+                        <span class="category">Backend разработчик</span>
+                    </div>
+                    <h2>SwiftMessage</h2>
+                    <div class="project-gallery">
+                        <figure class="project-image">
+                            <img src="src2.jpg" alt="Главный экран портала" loading="lazy">
+                            <figcaption>Обмен сообщениями в терминале</figcaption>
+                        </figure>
+                    </div>
+                    <div class="project-content">
+                        <h3>О проекте</h3>
+                        <p>Быстрый, асинхронный, многопоточный мессенджер:</p>
+                        <ul class="project-features">
+                            <li>Коммуникация в терминале</li>
+                            <li>Полный функционал обычных мессенджеров</li>
+                            <li>Многопоточность</li>
+                            <li>Самое быстрое клиент-серверное взаимодействие</li>
+                        </ul>
+
+                        <h3>Технологии</h3>
+                        <div class="tech-stack">
+                            <span class="tech-item">C++</span>
+                            <span class="tech-item">Boost Asio</span>
+                            <span class="tech-item">ncurses</span>
+                            <span class="tech-item">PostgreSQL</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="#" class="btn" target="_blank">Демо</a>
+                            <a href="https://github.com/ognevde17/SwiftMessage" class="btn btn-ghost">Исходный код</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; MIPT HSSE</p>
+    </footer>
+</body>
+</html>
