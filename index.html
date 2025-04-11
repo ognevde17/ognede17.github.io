@@ -39,7 +39,7 @@
             <article class="project-card">
                 <img src="scr.jpg" alt="Проект 1" loading="lazy">
                 <h3>SwiftMessage</h3>
-                <p>Лёгкий, быстрый, кроссплатформенный, многопоточный мессенджер, написанный полность на C++</p>
+                <p>Лёгкий, быстрый, кроссплатформенный, многопоточный мессенджер, написанный полностью на C++</p>
             </article>
         </div>
     </section>
@@ -76,23 +76,21 @@
 
     <section id="contact" class="contact">
         <h2>Связаться со мной</h2>
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/ваш-id-формы" method="POST">
             <div class="form-group">
                 <label for="name">Имя:</label>
                 <input type="text" id="name" name="name" required minlength="2">
             </div>
-            
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            
             <div class="form-group">
                 <label for="message">Сообщение:</label>
                 <textarea id="message" name="message" required minlength="10"></textarea>
             </div>
-            
             <button type="submit" class="btn">Отправить</button>
+            <div id="form-status" class="status-message"></div>
         </form>
     </section>
 
