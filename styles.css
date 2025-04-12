@@ -21,7 +21,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Общие стили */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -33,11 +32,7 @@ body {
     padding: 0.8rem 1.5rem;
     background: var(--blue);
     color: var(--white);
-    border: none;
     border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
     transition: var(--transition);
 }
 
@@ -51,7 +46,6 @@ body {
     box-shadow: var(--shadow);
     position: sticky;
     top: 0;
-    z-index: 100;
     border-bottom: 2px solid var(--blue);
 }
 
@@ -70,7 +64,6 @@ body {
 
 .nav-list a {
     color: var(--dark);
-    text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
 }
@@ -79,7 +72,6 @@ body {
     color: var(--red);
 }
 
-/* Герой секция */
 .hero {
     background: var(--white);
     color: var(--dark);
@@ -101,7 +93,6 @@ body {
 .hero p {
     font-size: 1.25rem;
     margin-bottom: 2rem;
-    opacity: 0.9;
 }
 
 .projects {
@@ -183,7 +174,7 @@ body {
 
 .skill-bar {
     height: 24px;
-    background: #e2e8f0;
+    background: white;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -311,11 +302,6 @@ input:focus, textarea:focus {
     flex-wrap: wrap;
 }
 
-.btn-ghost {
-    background: transparent;
-    border: 2px solid var(--blue);
-    color: var(--blue);
-}
 
 @media (max-width: 768px) {
     .nav-list {
