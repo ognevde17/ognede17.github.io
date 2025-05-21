@@ -363,8 +363,7 @@ input:focus, textarea:focus {
     max-height: 80%;
   }
   
-  /* Стили для кнопок навигации */
-/* Стили для кнопок навигации */
+
 .gallery-popup {
     position: fixed;
     top: 0;
