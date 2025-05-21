@@ -18,6 +18,7 @@ function updateControls() {
   nextBtn.style.display = currentIndex === galleryItems.length - 1 ? 'none' : 'block';
 }
 
+// Event listeners
 galleryItems.forEach((item, index) => {
   item.addEventListener('click', () => showPopup(index));
 });
@@ -41,6 +42,7 @@ function showTimedPopup() {
     setTimeout(() => {
       const popup = document.createElement('div');
       popup.className = 'timed-popup';
+      // Добавить стили и содержимое попапа
       document.body.appendChild(popup);
     }, 30000);
   }
