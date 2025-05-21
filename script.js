@@ -1,4 +1,3 @@
-// Gallery logic
 const galleryItems = document.querySelectorAll('.gallery-item');
 const popup = document.querySelector('.gallery-popup');
 const popupImage = document.querySelector('.popup-image');
@@ -19,7 +18,6 @@ function updateControls() {
   nextBtn.style.display = currentIndex === galleryItems.length - 1 ? 'none' : 'block';
 }
 
-// Event listeners
 galleryItems.forEach((item, index) => {
   item.addEventListener('click', () => showPopup(index));
 });
@@ -36,7 +34,6 @@ document.querySelector('.next-btn').addEventListener('click', () => {
   if(currentIndex < galleryItems.length - 1) showPopup(currentIndex + 1);
 });
 
-// Таймер для попапа
 let popupShown = localStorage.getItem('popupClosed');
 
 function showTimedPopup() {
@@ -44,7 +41,6 @@ function showTimedPopup() {
     setTimeout(() => {
       const popup = document.createElement('div');
       popup.className = 'timed-popup';
-      // Добавить стили и содержимое попапа
       document.body.appendChild(popup);
     }, 30000);
   }
