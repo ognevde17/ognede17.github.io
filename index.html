@@ -5,14 +5,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
+    <script src=script2.js defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Портфолио веб-разработчика">
     <meta name="keywords" content="веб-разработка, фронтенд, портфолио">
     <meta name="author" content="Ваше Имя">
     <title>Портфолио разработчика</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
+
     <header class="header">
         <nav class="nav">
             <a href="#" class="logo">Portfolio</a>
@@ -32,7 +35,7 @@
             <a href="#contact" class="btn">Связаться со мной</a>
         </div>
     </section>
-
+    
     <section id="projects" class="projects">
         <h2>Мои проекты</h2>
         <div class="project-grid">
@@ -73,15 +76,27 @@
             </div>
         </div>
     </section>
-
+    <!-- Попап для Telegram канала -->
+<!-- Попап для Telegram -->
+<div class="telegram-popup" id="telegramPopup">
+    <div class="popup-content">
+        <span class="close-popup-btn">&times;</span>
+        <h3>Подпишись на мой Telegram!</h3>
+        <a href="https://t.me/your_channel" target="_blank">
+            <img src="src2.jpg" alt="QR код" class="qr-code">
+        </a>
+        <p>Сканируй QR-код или переходи по <a href="https://t.me/your_channel" target="_blank">ссылке</a></p>
+    </div>
+</div>
     <section id="contact" class="contact">
         <h2>Связаться со мной</h2>
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/ваш-id-формы" method="POST">
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xgvkqgwv" method="POST">
             <div class="form-group">
                 <label for="name">Имя:</label>
                 <input type="text" id="name" name="name" required minlength="2">
             </div>
             <div class="form-group">
+
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
@@ -95,6 +110,13 @@
     </section>
 
     <footer class="footer">
+        <div class="countdown">
+            До устного матанализа осталось: 
+            <span id="days">0</span>д 
+            <span id="hours">0</span>ч 
+            <span id="minutes">0</span>м 
+            <span id="seconds">0</span>с
+          </div>
         <p>&copy; MIPT HSSE</p>
     </footer>
 </body>
