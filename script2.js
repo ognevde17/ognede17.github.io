@@ -1,4 +1,3 @@
-// Показать форму плавно при скролле
 window.addEventListener('scroll', () => {
     const form = document.querySelector('.contact-form');
     const formPosition = form.getBoundingClientRect().top;
@@ -11,19 +10,16 @@ window.addEventListener('scroll', () => {
       form.classList.remove('visible');
     }
   });
-  // Обновить обработчик формы
 const form = document.getElementById('contactForm');
 const submitBtn = form.querySelector('button[type="submit"]');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   
-  // Валидация
   const name = form.name.value;
   const email = form.email.value;
   const message = form.message.value;
 
-  // Регулярные выражения
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const nameRegex = /^[а-яА-ЯёЁa-zA-Z\s]+$/;
   
@@ -37,7 +33,6 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-  // Изменение кнопки
   submitBtn.disabled = true;
   submitBtn.textContent = 'Отправка...';
   submitBtn.style.backgroundColor = '#ccc';
@@ -68,7 +63,6 @@ form.addEventListener('submit', async (e) => {
 });
 
 
-// Логика отсчета
 const targetDate = new Date('2025-06-03').getTime();
 
 function updateCountdown() {
@@ -88,7 +82,6 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 
-// Фиксация меню
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     const heroHeight = document.querySelector('.hero').offsetHeight;
@@ -106,29 +99,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const popup = document.getElementById('telegramPopup');
     const closeBtn = document.querySelector('.close-popup-btn');
 
-    // Проверка существования элементов
     if (!popup || !closeBtn) {
         console.error('Элементы попапа не найдены!');
         return;
     }
 
-    // Функция показа попапа
     const showPopup = () => {
         if (!localStorage.getItem('popupClosed')) {
             popup.style.display = 'flex';
         }
     };
 
-    // Запуск таймера
     setTimeout(showPopup, 30000);
 
-    // Закрытие попапа
     closeBtn.addEventListener('click', () => {
         popup.style.display = 'none';
         localStorage.setItem('popupClosed', 'true');
     });
 
-    // Закрытие по клику вне попапа
     popup.addEventListener('click', (e) => {
         if (e.target === popup) {
             popup.style.display = 'none';
