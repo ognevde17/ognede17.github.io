@@ -46,5 +46,4 @@ function showTimedPopup() {
   }
 }
 
-// При закрытии попапа
 localStorage.setItem('popupClosed', 'true');
