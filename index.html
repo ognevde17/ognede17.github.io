@@ -26,13 +26,16 @@
                 <li><a href="#contact">Контакты</a></li>
             </ul>
         </nav>
+        
     </header>   
-
-    <section id="home" class="hero">
+    <svg class="animated-svg" width="150" height="150" viewBox="0 0 100 100">
+        <path class="svg-path" d="M50 10L90 90H10L50 10Z" fill="var(--blue)" />
+    </svg>
+    <section id="home" class="hero">        
         <div class="hero-content">
             <h1>Привет, я Даниил Огнев</h1>
             <p>Бэкенд разработчик с опытом создания современных архитектур и программный обеспечений</p>
-            <a href="#contact" class="btn">Связаться со мной</a>
+            <button type="button" class="btn" data-popup="contact">Связаться со мной</button>
         </div>
     </section>
     
@@ -84,29 +87,10 @@
         <a href="https://t.me/your_channel" target="_blank">
             <img src="qr-code.png" alt="QR код" class="qr-code">
         </a>
-        <p>Сканируй QR-код или переходи по <a href="https://t.me/+qHY4u4xa8cVlODdi" target="_blank">ссылке</a></p>
+        <p>Сканируй QR-код или переходи по <a href="https://t.me/your_channel" target="_blank">ссылке</a></p>
     </div>
 </div>
-    <section id="contact" class="contact">
-        <h2>Связаться со мной</h2>
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xgvkqgwv" method="POST">
-            <div class="form-group">
-                <label for="name">Имя:</label>
-                <input type="text" id="name" name="name" required minlength="2">
-            </div>
-            <div class="form-group">
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Сообщение:</label>
-                <textarea id="message" name="message" required minlength="10"></textarea>
-            </div>
-            <button type="submit" class="btn">Отправить</button>
-            <div id="form-status" class="status-message"></div>
-        </form>
-    </section>
+    
 
     <footer class="footer">
         <div class="countdown">
@@ -118,5 +102,28 @@
           </div>
         <p>&copy; MIPT HSSE</p>
     </footer>
+    <div class="contact-popup" id="contactPopup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h2>Связаться со мной</h2>
+            <form class="contact-form popup-form" action="https://formspree.io/f/xgvkqgwv" method="POST">
+                <div class="form-group">
+                    <label for="popup-name">Имя:</label>
+                    <input type="text" id="popup-name" name="name" required minlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="popup-email">Email:</label>
+                    <input type="email" id="popup-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-message">Сообщение:</label>
+                    <textarea id="popup-message" name="message" required minlength="10"></textarea>
+                </div>
+                <button type="submit" class="btn">Отправить</button>
+                <div class="status-message"></div>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>
