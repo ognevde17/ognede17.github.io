@@ -105,18 +105,17 @@ body {
     margin-bottom: 2rem;
 }
 .animated-svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
     pointer-events: none;
     z-index: 1;
 }
 
 .svg-path {
     transform-origin: center;
-    transition: inherit;
+    transition: transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1);
+    will-change: transform;
 }
 .projects {
     background: var(--blue);
@@ -124,7 +123,12 @@ body {
     padding: 4rem 2rem;
     position: relative;
 }
-
+.name {
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 .projects h2 {
     text-align: center;
     font-size: 2rem;
@@ -223,26 +227,97 @@ body {
     padding: 4rem 2rem;
 }
 
-.contact h2 {
+.contact h2 {   
     text-align: center;
     font-size: 2rem;
     margin-bottom: 2rem;
 }
 
-/* Обновить стили формы */
-.contact-form {
-    background-color: (var(--white));
-    max-width: 600px;
-    margin: 0 auto;
+.contact-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
-    transform: translateY(20px);
-    transition: var(--transition);  
-  }
-  
-  .contact-form.visible {
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.contact-popup.active {
     opacity: 1;
-    transform: translateY(0);
-  }
+    visibility: visible;
+}
+
+.contact-popup .popup-content { 
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    /* z-index: 10; */
+    max-width: 500px;
+    border-color: red;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.contact-popup.active .popup-content {
+    transform: scale(1);
+}
+
+.contact-popup .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    /* z-index: 10000; */
+    color: var(--dark);
+    border-color: red;
+}
+
+
+
+.contact-popup .close-popup {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--dark);
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.contact-popup .close-popup:hover {
+    color: var(--red);
+}
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-popup:hover {
+    color: var(--red);
+}
+
+.ZOMBIE {
+    z-index: 100000;
+}
+
+.popup-form .form-group {
+    margin-bottom: 1.2rem;
+    z-index: 100000;
+}
 
 .form-group {
     margin-bottom: 1.5rem;
@@ -331,7 +406,6 @@ input:focus, textarea:focus {
     gap: 1rem;
     flex-wrap: wrap;
 }
-/* Добавить в CSS */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -363,7 +437,6 @@ input:focus, textarea:focus {
     max-height: 80%;
   }
   
-
 .gallery-popup {
     position: fixed;
     top: 0;
@@ -486,3 +559,4 @@ input:focus, textarea:focus {
         padding: 1rem;
     }
 }
+
