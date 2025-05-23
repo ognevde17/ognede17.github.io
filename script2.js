@@ -46,7 +46,113 @@ const handleFormSubmit = (form, isPopup = false) => {
   const statusMessage = form.querySelector('.status-message');
   const inputs = form.querySelectorAll('input, textarea');
   const originalText = submitBtn.textContent;
+  const validationRules = {
+    name: {
+      required: true,
+      minLength: 5,
+      regex: /^[A-Za-zА-Яа-яЁё\s]+$/,
+      messages: {
+        required: 'Пожалуйста, введите ваше имя',
+        minLength: 'Имя должно содержать минимум 5 символов',
+        invalid: 'Разрешены только буквы и пробелы'
+      }
+    },
+    email: {
+      required: true,
+      regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      messages: {
+        required: 'Пожалуйста, введите ваш email',
+        invalid: 'Введите корректный email адрес'
+      }
+    },
+    message: {
+      required: true,
+      minLength: 10,
+      messages: {
+        required: 'Пожалуйста, введите сообщение',
+        minLength: 'Сообщение должно содержать минимум 10 символов'
+      }
+    }
+  };
 
+  const validateField = (input) => {
+    const fieldName = input.id.replace('popup-', '');
+    const value = input.value.trim();
+    const rules = validationRules[fieldName];
+    let isValid = true;
+
+    clearFieldError(input);
+
+    if (rules.required && !value) {
+      showFieldError(input, rules.messages.required);
+      return false;
+    }
+
+    if (rules.minLength && value.length < rules.minLength) {
+      showFieldError(input, rules.messages.minLength);
+      isValid = false;
+    }
+
+    if (rules.regex && !rules.regex.test(value)) {
+      showFieldError(input, rules.messages.invalid);
+      isValid = false;
+    }
+
+    return isValid;
+  };
+  
+  inputs.forEach(input => {
+    const errorContainer = document.createElement('div');
+    errorContainer.className = 'error-message';
+    errorContainer.style.color = 'red';
+    errorContainer.style.fontSize = '0.8rem';
+    errorContainer.style.marginTop = '0.3rem';
+    input.parentNode.appendChild(errorContainer);
+  });
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const errorMessages = {
+    name: {
+      valueMissing: 'Пожалуйста, введите ваше имя',
+      tooShort: 'Имя должно содержать минимум 2 символа'
+    },
+    email: {
+      valueMissing: 'Пожалуйста, введите ваш email',
+      typeMismatch: 'Введите корректный email адрес',
+      customError: 'Email не соответствует формату'
+    },
+    message: {
+      valueMissing: 'Пожалуйста, введите сообщение',
+      tooShort: 'Сообщение должно содержать минимум 10 символов'
+    }
+  };
+
+  const showFieldError = (input, message) => {
+    const errorContainer = input.parentNode.querySelector('.error-message');
+    errorContainer.textContent = message;
+    input.style.borderColor = 'red';
+  };
+
+  const clearFieldError = (input) => {
+    const errorContainer = input.parentNode.querySelector('.error-message');
+    errorContainer.textContent = '';
+    input.style.borderColor = '#e2e8f0';
+  };
+
+  const validateForm = () => {
+    let isFormValid = true;
+
+    inputs.forEach(input => {
+      const fieldValid = validateField(input);
+      if (!fieldValid) isFormValid = false;
+    });
+
+    return isFormValid;
+  };
   const showSuccess = () => {
     statusMessage.textContent = 'Сообщение отправлено!';
     statusMessage.style.color = 'green';
@@ -84,19 +190,10 @@ const handleFormSubmit = (form, isPopup = false) => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    // Валидация
-    let isValid = true;
-    inputs.forEach(input => {
-      if(!input.checkValidity()) {
-        input.style.borderColor = 'red';
-        isValid = false;
-      } else {
-        input.style.borderColor = '#e2e8f0';
-      }
-    });
-
-    if(!isValid) {
-      showError('Заполните все обязательные поля');
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      showError('Исправьте выделенные ошибки');
       return;
     }
 
@@ -132,9 +229,8 @@ const handleFormSubmit = (form, isPopup = false) => {
 
   inputs.forEach(input => {
     input.addEventListener('input', () => {
-      if(input.checkValidity()) {
-        input.style.borderColor = '#e2e8f0';
-      }
+      validateField(input);
+      if (input.value.trim() === '') clearFieldError(input);
     });
   });
 };
@@ -207,7 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// SVG Parallax Animation
 const initSvgAnimations = () => {
   const svg = document.querySelector('.animated-svg');
   const svgPath = document.querySelector('.svg-path');
@@ -230,7 +325,7 @@ const initSvgAnimations = () => {
 
       svgPath.style.transform = `
           translate(${deltaX * maxMove}px, ${deltaY * maxMove}px)
-          rotateX(${deltaY * -maxTilt}deg)
+          rotateX(${deltaY * maxTilt}deg)
           rotateY(${deltaX * maxTilt}deg)
       `;
       
